@@ -10,7 +10,16 @@ conectarDB()
 
 // habilitar cors
 const whitelist = ["http://localhost:3000"]
-app.use(cors({ origin: whitelist }))
+const options = {
+  origin: (origin, callback) => {
+    if (whitelist.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error("No permitido"))
+    }
+  },
+}
+app.use(cors(options))
 
 // Habilitar express.json
 app.use(express.json({ extended: true }))
