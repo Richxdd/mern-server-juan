@@ -9,7 +9,7 @@ const app = express()
 conectarDB()
 
 // habilitar cors
-app.use(cors())
+app.use(cors({ origin: "http://localhost:3000/" }))
 
 // Habilitar express.json
 app.use(express.json({ extended: true }))
