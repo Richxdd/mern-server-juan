@@ -9,8 +9,7 @@ const app = express()
 conectarDB()
 
 // habilitar cors
-app.use(cors({ credentials: true, origin: true }))
-app.options("*", cors())
+app.use(cors())
 
 // Habilitar express.json
 app.use(express.json({ extended: true }))
